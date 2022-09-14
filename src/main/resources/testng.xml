@@ -10,6 +10,8 @@
             <class name = "PageTests.DocsPageTest" />
             <class name = "PageTests.CalendarPageTest" />
             <class name = "PageTests.ContactPageTest" />
+            <class name = "PageTests.CasesPageTest" />
+            <class name = "PageTests.CompanyPageTest" />
         </classes>
     </test>
 </suite>

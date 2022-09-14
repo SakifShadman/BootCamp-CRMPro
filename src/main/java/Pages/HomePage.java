@@ -42,6 +42,9 @@ public class HomePage {
     @FindBy(css = "a[title='Cases']")
     WebElement casesElement;
 
+    @FindBy (css = "a[title='Companies']")
+    WebElement companyElement;
+
     public HomePage validateDisplay() {
         Utils.switchFrame();
         Assert.assertTrue(contactElement.isDisplayed(), "Contact Element is not displayed");
@@ -112,5 +115,11 @@ public class HomePage {
         Utils.switchFrame();
         casesElement.click();
         return PageFactory.initElements(driver, CasesPage.class);
+    }
+
+    public CompanyPage navigateToCompanyPage(){
+        Utils.switchFrame();
+        companyElement.click();
+        return PageFactory.initElements(driver, CompanyPage.class);
     }
 }
