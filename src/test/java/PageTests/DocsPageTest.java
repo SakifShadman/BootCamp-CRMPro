@@ -6,12 +6,13 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(Utils.class)
-public class SignUpPageTest extends TestBase {
+public class DocsPageTest extends TestBase {
 
     @Test
-    public void registerTest() {
+    public void filePresenceTest() {
         baseCRMProPage()
-                .navigateToSignUpPage()
-                .register();
+                .navigateToHomePage()
+                .navigateToDocsPage()
+                .validateFilePresence();
     }
 }

@@ -6,12 +6,13 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(Utils.class)
-public class SignUpPageTest extends TestBase {
+public class CasesPageTest extends TestBase {
 
     @Test
-    public void registerTest() {
+    public void casesTitleTest(){
         baseCRMProPage()
-                .navigateToSignUpPage()
-                .register();
+                .navigateToHomePage()
+                .navigateToCasesPage()
+                .verifyCasesTitle("Missing Mail ");
     }
 }

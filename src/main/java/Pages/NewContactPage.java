@@ -1,11 +1,15 @@
 package Pages;
 
+import Browser.Browser;
 import Utilities.Utils;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.DataProvider;
 
 public class NewContactPage {
+
+    WebDriver driver = Browser.driver;
 
     @FindBy(id = "first_name")
     WebElement firstNameElement;

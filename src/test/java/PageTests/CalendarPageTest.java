@@ -1,20 +1,24 @@
 package PageTests;
 
 import Base.TestBase;
+import Utilities.Utils;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(Utils.class)
 public class CalendarPageTest extends TestBase {
 
-    @Test
-    public void verifyFirstEventT(){
+    @Test(priority = 1)
+    public void firstEventTest(){
         baseCRMProPage()
                 .navigateToHomePage()
                 .navigateToCalendarPage()
                 .navigateToFirstEvent()
-                .validateFirstEvent("Boot Camp ");
+                .validateFirstEvent();
     }
-    @Test
-    public void VerifyThirdEvent(){
+
+    @Test(priority = 2)
+    public void thirdEventTest(){
         baseCRMProPage()
                 .navigateToHomePage()
                 .navigateToCalendarPage()
@@ -22,4 +26,12 @@ public class CalendarPageTest extends TestBase {
                 .validateThirdEvent();
     }
 
+    @Test(priority = 3)
+    public void event2023Test(){
+        baseCRMProPage()
+                .navigateToHomePage()
+                .navigateToCalendarPage()
+                .navigateToEvent2023()
+                .validateEvent2023();
+    }
 }

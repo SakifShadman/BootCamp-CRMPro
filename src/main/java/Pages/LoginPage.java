@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginPage {
+
     WebDriver driver = Browser.driver;
 
     @FindBy(name = "username")
@@ -32,7 +33,7 @@ public class LoginPage {
 
     public LoginPage validateTitle() {
         Assert.assertEquals(driver.getTitle(),
-                "CRMPRO - CRM software for customer relationship management, sales, and support.",
+                "Free CRM - CRM software for customer relationship management, sales, and support.",
                 "Title name is not matched");
         return this;
     }

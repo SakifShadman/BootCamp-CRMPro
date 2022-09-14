@@ -10,18 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class HomePage {
+
     WebDriver driver = Browser.driver;
 
     String text = "All boxes are showing in your Home page.";
-
-    @FindBy(css = "a[title='Contacts']")
-    WebElement contactElement;
-
-    @FindBy(css = "a[title='New Contact']")
-    WebElement newContactLink;
-
-    @FindBy(css ="a[title='Calendar']")
-    WebElement calendarElement;
 
     @FindBy(css = "a[onclick='addHomeBoxPanel();']")
     WebElement addBoxesElement;
@@ -32,11 +24,31 @@ public class HomePage {
     @FindBy(linkText = "Close")
     WebElement addHomeBoxCloseButton;
 
+    @FindBy(css = "a[title='Contacts']")
+    WebElement contactElement;
+
+    @FindBy(css = "a[title='New Contact']")
+    WebElement newContactElement;
+
+    @FindBy(css ="a[title='Calendar']")
+    WebElement calendarElement;
+
+    @FindBy(css ="a[title='Docs']")
+    WebElement docsElement;
+
+    @FindBy(css ="a[title='Multi Doc Upload']")
+    WebElement multiDocUploadElement;
+
+    @FindBy(css = "a[title='Cases']")
+    WebElement casesElement;
+
     public HomePage validateDisplay() {
         Utils.switchFrame();
         Assert.assertTrue(contactElement.isDisplayed(), "Contact Element is not displayed");
         Assert.assertTrue(calendarElement.isDisplayed(), "Calender Element is not displayed");
         Assert.assertTrue(addBoxesElement.isDisplayed(), "Add Boxes Element is not displayed");
+        Assert.assertTrue(docsElement.isDisplayed(), "Docs Element is not displayed");
+        Assert.assertTrue(casesElement.isDisplayed(), "Cases Element is not displayed");
         return this;
     }
 
@@ -62,7 +74,29 @@ public class HomePage {
         return this;
     }
 
-    public ContactPage navigateToContactsPage(){
+    public NewContactPage navigateToNewContactPage() {
+        Utils.switchFrame();
+        Actions action = new Actions(driver);
+        action.moveToElement(contactElement).build().perform();
+        newContactElement.click();
+        return PageFactory.initElements(driver, NewContactPage.class);
+    }
+
+    public MultiDocUploadPage navigateToMultiDocUploadPage() {
+        Utils.switchFrame();
+        Actions action = new Actions(driver);
+        action.moveToElement(docsElement).build().perform();
+        multiDocUploadElement.click();
+        return PageFactory.initElements(driver, MultiDocUploadPage.class);
+    }
+
+    public DocsPage navigateToDocsPage(){
+        Utils.switchFrame();
+        docsElement.click();
+        return PageFactory.initElements(driver, DocsPage.class);
+    }
+
+    public ContactPage navigateToContactPage(){
         Utils.switchFrame();
         contactElement.click();
         return PageFactory.initElements(driver, ContactPage.class);
@@ -74,11 +108,9 @@ public class HomePage {
         return PageFactory.initElements(driver,CalendarPage.class);
     }
 
-    public NewContactPage navigateToNewContactPage() {
+    public CasesPage navigateToCasesPage(){
         Utils.switchFrame();
-        Actions action = new Actions(driver);
-        action.moveToElement(contactElement).build().perform();
-        newContactLink.click();
-        return PageFactory.initElements(driver, NewContactPage.class);
+        casesElement.click();
+        return PageFactory.initElements(driver, CasesPage.class);
     }
 }
