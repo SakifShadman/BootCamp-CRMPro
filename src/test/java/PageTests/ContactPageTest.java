@@ -3,7 +3,7 @@ package PageTests;
 import Base.TestBase;
 import org.testng.annotations.Test;
 
-public class ContactsPageTest extends TestBase {
+public class ContactPageTest extends TestBase {
 
     @Test(priority = 1)
     public void searchContactsNameTest(){

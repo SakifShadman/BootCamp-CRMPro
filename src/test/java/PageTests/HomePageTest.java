@@ -8,21 +8,17 @@ import org.testng.annotations.Test;
 @Listeners(Utils.class)
 public class HomePageTest extends TestBase {
 
-    @Test
-    public void homePageTest() {
-        baseCRMProPage().navigateToHomePage();
+    @Test(priority = 1)
+    public void displayTest() {
+        baseCRMProPage()
+                .navigateToHomePage()
+                .validateDisplay();
     }
 
-    @Test
-    public void verifynavigateToContactsPage(){
+    @Test(priority = 2)
+    public void addBoxesTest() {
         baseCRMProPage()
                 .navigateToHomePage()
-                .navigateToContactsPage();
-    }
-    @Test
-    public void verifyNavigateToCalenderPage(){
-        baseCRMProPage()
-                .navigateToHomePage()
-                .navigateToCalendarPage();
+                .validateAddBoxesText();
     }
 }

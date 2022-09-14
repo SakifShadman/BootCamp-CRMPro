@@ -21,7 +21,6 @@ import java.time.Duration;
 public class Utils extends TestListenerAdapter {
     public static final int PAGE_LOAD_TIMEOUT = 20;
     public static final int IMPLICITLY_WAIT = 15;
-
     public static final int EXPLICIT_WAIT = 15;
     public static final String TEST_DATA_SHEET = "src/main/java/TestData/ContactInfo.xlsx";
     static Workbook book;

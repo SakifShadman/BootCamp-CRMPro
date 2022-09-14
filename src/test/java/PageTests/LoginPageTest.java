@@ -9,12 +9,20 @@ import org.testng.annotations.Test;
 public class LoginPageTest extends TestBase {
 
     @Test(priority = 1)
-    public void TitleTest() {
-        baseCRMProPage().validateTitle();
+    public void titleTest() {
+        baseCRMProPage()
+                .validateTitle();
     }
 
     @Test(priority = 2)
+    public void loginButtonTest() {
+        baseCRMProPage()
+                .validateLoginButton();
+    }
+
+    @Test(priority = 3)
     public void brokenLinkTest() {
-        baseCRMProPage().validateBrokenLink();
+        baseCRMProPage()
+                .validateBrokenLink();
     }
 }
