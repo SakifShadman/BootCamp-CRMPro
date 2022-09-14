@@ -6,34 +6,37 @@ import org.testng.annotations.Test;
 public class ContactPageTest extends TestBase {
 
     @Test(priority = 1)
-    public void searchContactsNameTest(){
+    public void searchContactNameTest(){
         baseCRMProPage()
                 .navigateToHomePage()
-                .navigateToContactsPage()
-                .searchContactsName("Gurpreet Kaur");
+                .navigateToContactPage()
+                .searchContactName("Gurpreet Kaur");
     }
+
     @Test(priority = 2)
-    public void verifyContactCompany(){
+    public void contactCompanyTest(){
         baseCRMProPage()
                 .navigateToHomePage()
-                .navigateToContactsPage()
-                .searchContactsName("Gurpreet Kaur")
+                .navigateToContactPage()
+                .searchContactName("Gurpreet Kaur")
                 .validateContactCompany("Home Goods ");
     }
+
     @Test(priority = 3)
-    public void verifyContactPhone(){
+    public void contactPhoneTest(){
         baseCRMProPage()
                 .navigateToHomePage()
-                .navigateToContactsPage()
-                .searchContactsName("Gurpreet Kaur")
+                .navigateToContactPage()
+                .searchContactName("Gurpreet Kaur")
                 .validateContactPhone("951753852  ");
     }
+
     @Test(priority = 4)
-    public void verifyContactEmail(){
+    public void contactEmailTest(){
         baseCRMProPage()
                 .navigateToHomePage()
-                .navigateToContactsPage()
-                .searchContactsName("Gurpreet")
+                .navigateToContactPage()
+                .searchContactName("Gurpreet")
                 .validateContactEmail("mnb@y.com ");
     }
 }

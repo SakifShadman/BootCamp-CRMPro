@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "CRMPro Test Suite">
+    <test name = "CRMPro Test Cases">
+        <classes>
+            <class name = "PageTests.LoginPageTest" />
+            <class name = "PageTests.SignUpPageTest" />
+            <class name = "PageTests.HomePageTest" />
+            <class name = "PageTests.NewContactPageTest" />
+            <class name = "PageTests.MultiDocUploadPageTest" />
+            <class name = "PageTests.DocsPageTest" />
+            <class name = "PageTests.CalendarPageTest" />
+            <class name = "PageTests.ContactPageTest" />
+        </classes>
+    </test>
+</suite>
