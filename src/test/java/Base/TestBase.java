@@ -3,7 +3,6 @@ package Base;
 import Browser.Browser;
 import Informations.Info;
 import Pages.LoginPage;
-import Utilities.Utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
