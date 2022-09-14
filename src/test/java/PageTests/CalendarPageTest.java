@@ -11,7 +11,7 @@ public class CalendarPageTest extends TestBase {
                 .navigateToHomePage()
                 .navigateToCalendarPage()
                 .navigateToFirstEvent()
-                .validateFirstEvent("Boot Camp ");
+                .validateFirstEvent();
     }
     @Test
     public void VerifyThirdEvent(){
@@ -20,6 +20,14 @@ public class CalendarPageTest extends TestBase {
                 .navigateToCalendarPage()
                 .navigateToThirdEvent()
                 .validateThirdEvent();
+    }
+    @Test
+    public void verifyToEvent2023(){
+        baseCRMProPage()
+                .navigateToHomePage()
+                .navigateToCalendarPage()
+                .navigateToEvent2023()
+                .validateEvent2023();
     }
 
 }

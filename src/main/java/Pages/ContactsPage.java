@@ -2,6 +2,7 @@ package Pages;
 
 import Browser.Browser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,22 +21,23 @@ public class ContactsPage {
 
     public ContactsPage searchContactsName(String name) {
         nameElement.sendKeys(name);
-        searchButton.click();
+        nameElement.sendKeys(Keys.ENTER);
+        //searchButton.click();
         return this;
     }
     public ContactsPage validateContactCompany(String company){
         List<WebElement> list=driver.findElements(By.xpath("//form[@id='vContactsForm']//tr[4]//td"));
-        Assert.assertEquals(list.get(2).getText(),company);
+        Assert.assertEquals(list.get(2).getText(),company,"Company name not matched");
         return this;
     }
     public ContactsPage validateContactPhone(String phone){
         List<WebElement> list=driver.findElements(By.xpath("//form[@id='vContactsForm']//tr[4]//td"));
-        Assert.assertEquals(list.get(3).getText(),phone);
+        Assert.assertEquals(list.get(3).getText(),phone,"Phone number not matched");
         return this;
     }
     public ContactsPage validateContactEmail(String email){
         List<WebElement> list=driver.findElements(By.xpath("//form[@id='vContactsForm']//tr[4]//td"));
-        Assert.assertEquals(list.get(6).getText(),email);
+        Assert.assertEquals(list.get(6).getText(),email,"Email ID not matched");
         return this;
 
     }

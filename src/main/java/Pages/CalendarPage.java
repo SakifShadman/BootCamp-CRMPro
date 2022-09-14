@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import java.util.List;
@@ -19,6 +21,18 @@ public class CalendarPage {
     @FindBy(id = "_eventselector_1115996")
     WebElement bootCampEvent;
 
+    @FindBy(name = "slctMonth")
+            WebElement selectMonth;
+
+    @FindBy(name = "slctYear")
+            WebElement selectYear;
+
+    @FindBy(className= "calendarcellfull")
+            WebElement event1Element;
+
+    @FindBy(id = "_eventselector_1115690")
+            WebElement newyearElement;
+
 
     List<WebElement> thirdEvent=driver.findElements(By.className("calendarcellfull"));
     public CalendarPage navigateToFirstEvent(){
@@ -29,9 +43,9 @@ public class CalendarPage {
         return this;
     }
 
-    public CalendarPage validateFirstEvent(String title){
+    public CalendarPage validateFirstEvent(){
         List<WebElement> list=driver.findElements(By.className("datafield"));
-        Assert.assertEquals(list.get(0).getText(),title,"No Boot Camp");
+        Assert.assertEquals(list.get(0).getText(),"Boot Camp ","No Boot Camp");
         return this;
     }
 
@@ -44,9 +58,27 @@ public class CalendarPage {
         return this;
     }
     public void validateThirdEvent(){
+
         List<WebElement> list=driver.findElements(By.xpath("//div[@id='vSummary']//table//tr[2]//td[2]"));
         Assert.assertEquals(list.get(0).getText(),"Missing Document ","No Missing Document");
     }
+    public CalendarPage navigateToEvent2023(){
+        Select select=new Select(selectMonth);
+        select.selectByVisibleText("January");
+        Select select1=new Select(selectYear);
+        select1.selectByVisibleText("2023");
+        event1Element.click();
+        newyearElement.click();
+        return PageFactory.initElements(driver,CalendarPage.class);
+    }
+
+    public CalendarPage validateEvent2023(){
+       List<WebElement> list=driver.findElements(By.className("datafield"));
+       Assert.assertEquals(list.get(0).getText(),"New Year's Day ","There is No Event");
+       return this;
+
+    }
+
 
 
 }
