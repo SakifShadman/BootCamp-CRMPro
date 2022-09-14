@@ -17,6 +17,24 @@ public class HomePage {
     @FindBy(css = "a[title='New Contact']")
     WebElement newContactLink;
 
+    @FindBy(css = "a[title='Contacts']")
+    WebElement contactsElement;
+
+    @FindBy(css ="a[title='Calendar']")
+    WebElement calendarElement;
+
+    public ContactsPage navigateToContactsPage(){
+        Utils.switchFrame();
+        contactsElement.click();
+        return PageFactory.initElements(driver,ContactsPage.class);
+    }
+
+    public CalendarPage navigateToCalendarPage(){
+        Utils.switchFrame();
+        calendarElement.click();
+        return PageFactory.initElements(driver,CalendarPage.class);
+    }
+
     public NewContactPage navigateToNewContactPage() {
         Utils.switchFrame();
         Actions action = new Actions(driver);

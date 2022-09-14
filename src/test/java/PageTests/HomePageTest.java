@@ -12,4 +12,17 @@ public class HomePageTest extends TestBase {
     public void homePageTest() {
         baseCRMProPage().navigateToHomePage();
     }
+
+    @Test
+    public void verifynavigateToContactsPage(){
+        baseCRMProPage()
+                .navigateToHomePage()
+                .navigateToContactsPage();
+    }
+    @Test
+    public void verifyNavigateToCalenderPage(){
+        baseCRMProPage()
+                .navigateToHomePage()
+                .navigateToCalendarPage();
+    }
 }
