@@ -1,6 +1,6 @@
 package Informations;
 
-public class Info {
+public class LoginInformation {
 
     public static String browser = "Chrome";
     public static final String URL = "https://crmpro.com/index.html";
