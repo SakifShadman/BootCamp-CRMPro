@@ -1,7 +1,7 @@
 package Base;
 
 import Browser.Browser;
-import Informations.Info;
+import Informations.LoginInformation;
 import Pages.LoginPage;
 import Utilities.Utils;
 import org.openqa.selenium.WebDriver;
@@ -21,7 +21,7 @@ public class TestBase {
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(Utils.PAGE_LOAD_TIMEOUT));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Utils.IMPLICITLY_WAIT));
-        driver.navigate().to(Info.URL);
+        driver.navigate().to(LoginInformation.URL);
     }
 
     @AfterMethod
