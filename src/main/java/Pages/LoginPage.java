@@ -28,12 +28,17 @@ public class LoginPage {
     WebElement loginButton;
 
     @FindBy(linkText = "Sign Up")
-    WebElement signUpLink;
+    WebElement signUpElement;
 
     public LoginPage validateTitle() {
         Assert.assertEquals(driver.getTitle(),
                 "CRMPRO - CRM software for customer relationship management, sales, and support.",
                 "Title name is not matched");
+        return this;
+    }
+
+    public LoginPage validateLoginButton() {
+        Assert.assertTrue(loginButton.isDisplayed(), "Login Button is not Displayed");
         return this;
     }
 
@@ -63,6 +68,11 @@ public class LoginPage {
             }
         }
         return this;
+    }
+
+    public SignUpPage navigateToSignUpPage() {
+        signUpElement.click();
+        return PageFactory.initElements(driver, SignUpPage.class);
     }
 
     public HomePage navigateToHomePage() {
