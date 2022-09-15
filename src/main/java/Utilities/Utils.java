@@ -30,6 +30,14 @@ public class Utils extends TestListenerAdapter {
         Browser.driver.switchTo().frame("mainpanel");
     }
 
+    public static void threadSleep(int duration) {
+        try {
+            Thread.sleep(duration);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static WebElement explicitWait(WebElement locator) {
         WebDriverWait wait = new WebDriverWait(Browser.driver, Duration.ofSeconds(EXPLICIT_WAIT));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
