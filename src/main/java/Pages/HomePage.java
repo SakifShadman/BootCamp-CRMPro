@@ -57,22 +57,10 @@ public class HomePage {
 
     public HomePage validateAddBoxesText() {
         Utils.switchFrame();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
+        Utils.threadSleep(3000);
         addBoxesElement.click();
         Assert.assertEquals(addBoxesText.getText(), text, "Text are not matched.");
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
+        Utils.threadSleep(5000);
         addHomeBoxCloseButton.click();
         return this;
     }
